@@ -1,90 +1,101 @@
 import java.util.*;
 
 public class arr {
-	int num1, num2, Total = 0;
-	arr(){
-		num1 = 0; num2 = 0; Total = 0;
+	// int num1, num2, Total = 0;
+
+	arr() {
 		System.out.println("I'm constustor of arr");
 	}
+
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
 
-		// int num1, num2, Total = 0;  
+		// arr ass = new arr();
+		control con = new control();
+		con.control_fun();
+	}
+}
 
-		arr ass = new arr();
+class control extends Number{
 
-		Scanner scan = new Scanner(System.in); 
+	public void control_fun(){
 
+		Scanner scan = new Scanner(System.in);
+		
 		Number n = new Number();
-
+		while(true){
+		int num1=0, num2=0, Total = 0;
 		System.out.printf(
-				"\n\nPress 1 For Addition\nPress 2 For Substarction\nPress 3 For Multiplication\nPress 4 For Division\nPress 5 for Sqr the number\nPress 6 For Swap Two Numbers\nPress 7 for Sum multiple numners\nPress 8 For Multiplication Table\nPress 9 For Dispaly Even Or Odd\nPress 10 For find Grestest Number\nPress 11 for Revers a number\nPress 0 for Exiting the window\n");
+				"\n\nPress 1 For Addition\nPress 2 For Substarction\nPress 3 For Multiplication\nPress 4 For Division\nPress 5 for Sqr the number\nPress 6 For Swap Two Numbers\nPress 7 for Sum multiple numners\nPress 8 For Multiplication Table\nPress 9 For Dispaly Even Or Odd\nPress 10 For find Grestest Number\nPress 11 for Revers a number\nPress 0 for Exiting the window\n\n");
 
 		try {
-			System.out.print("Enter Your Choice: ");	
-			ass.Total = scan.nextInt();	
+			System.out.print("Enter Your Choice: ");
+			Total = scan.nextInt();
 		} catch (Exception e) {
-			System.out.print("Warnning:- Kindly enter an integer from 1-11"); 
-			// System.out.println(e);	
-			System.exit(0);
+			System.out.print("Warnning:- Kindly enter an integer from 1-11");
+			// System.out.println(e);
+			// System.exit(0);
+			control_fun();
 		}
 
-		if (ass.Total == 0){
-			System.exit(0);
-		}
-		if (ass.Total == 5 || ass.Total == 8 || ass.Total == 9 || ass.Total == 11) {
-			System.out.print("Enter a number:");	
-			try {
-				ass.num1 = scan.nextInt();	
-				ass.num2 = 0;	
-				n.Number_var(ass.num1, ass.num2, ass.Total);	
-			} catch (Exception e) {	
-				System.out.print("Warnning:-");	
-				System.out.println(e);	
+		
+			if (Total == 0) {
+				System.exit(0);
 			}
-
-		}
-
-		else if (ass.Total == 7) {
-			int[] arr = new int[10];
-
-			System.out.println("Press 0 for quit");
-
-			for (int i = 0; i < arr.length; i++) {
-
-				System.out.print("Enter the value of arrey: ");
-
-				arr[i] = scan.nextInt();
-
-				if (arr[i] == 0) {
-					break;
-				}
-			}
-
-			n.arrey_method(arr, ass.Total);
-		}
-
-		else {
-			if (ass.Total >= 12) {
-				System.out.format("Press a Valid Opation");
-			} else {
+			if (Total == 5 || Total == 8 || Total == 9 || Total == 11) {
+				System.out.print("Enter a number:");
 				try {
-					System.out.print("Enter a number:");
-					ass.num1 = scan.nextInt();
-
-					System.out.print("Enter a number:");
-					ass.num2 = scan.nextInt();
-
-					n.Number_var(ass.num1, ass.num2, ass.Total);
+					num1 = scan.nextInt();
+					num2 = 0;
+					n.Number_var(num1, num2, Total);
 				} catch (Exception e) {
-					System.out.print("Warnning:-");
-					System.out.println(e);
+					System.out.print("Warnning:- Enter a valid number");
+					control_fun();
+				}
+	
+			}
+	
+			else if (Total == 7) {
+				int[] arr = new int[10];
+	
+				System.out.println("Press 0 for quit");
+	
+				for (int i = 0; i < arr.length; i++) {
+	
+					System.out.print("Enter the value of arrey: ");
+	
+					arr[i] = scan.nextInt();
+	
+					if (arr[i] == 0) {
+						break;
+					}
+				}
+	
+				n.arrey_method(arr, Total);
+			}
+	
+			else {
+				if (Total >= 12) {
+					System.out.format("Press a Valid Opation");
+				} else {
+					try {
+						System.out.print("Enter a number:");
+						num1 = scan.nextInt();
+	
+						System.out.print("Enter a number:");
+						num2 = scan.nextInt();
+	
+						n.Number_var(num1, num2, Total);
+					} catch (Exception e) {
+						System.out.print("Warnning:- Kindly enter an integer");
+						control_fun();
+					}
 				}
 			}
-		}		
-		scan.close();
+			// scan.close();
+		}
 	}
 }
 
@@ -177,9 +188,9 @@ class Sum_num {
 		return tot;
 	}
 
-	int Revers_num(int x) { 
-		int rem =0;
-		
+	int Revers_num(int x) {
+		int rem = 0;
+
 		while (true) {
 			rem = x % 10;
 
