@@ -1,5 +1,6 @@
 import java.util.*;
 
+
 public class arr {
 	// int num1, num2, Total = 0;
 
@@ -9,8 +10,9 @@ public class arr {
 
 	/**
 	 * @param args
+	 * @throws InterruptedException
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 
 		// arr ass = new arr();
 		control con = new control();
@@ -18,29 +20,27 @@ public class arr {
 	}
 }
 
-class control extends Number{
+class control extends Number {
 
-	public void control_fun(){
+	public void control_fun() throws InterruptedException {
 
 		Scanner scan = new Scanner(System.in);
-		
+
 		Number n = new Number();
-		while(true){
-		int num1=0, num2=0, Total = 0;
-		System.out.printf(
-				"\n\nPress 1 For Addition\nPress 2 For Substarction\nPress 3 For Multiplication\nPress 4 For Division\nPress 5 for Sqr the number\nPress 6 For Swap Two Numbers\nPress 7 for Sum multiple numners\nPress 8 For Multiplication Table\nPress 9 For Dispaly Even Or Odd\nPress 10 For find Grestest Number\nPress 11 for Revers a number\nPress 0 for Exiting the window\n\n");
+		while (true) {
+			int num1 = 0, num2 = 0, Total = 0;
+			System.out.printf(
+					"\n\nPress 1 For Addition\nPress 2 For Substarction\nPress 3 For Multiplication\nPress 4 For Division\nPress 5 for Sqr the number\nPress 6 For Swap Two Numbers\nPress 7 for Sum multiple numners\nPress 8 For Multiplication Table\nPress 9 For Dispaly Even Or Odd\nPress 10 For find Grestest Number\nPress 11 for Revers a number\nPress 0 for Exiting the window\n\n");
 
-		try {
-			System.out.print("Enter Your Choice: ");
-			Total = scan.nextInt();
-		} catch (Exception e) {
-			System.out.print("Warnning:- Kindly enter an integer from 1-11");
-			// System.out.println(e);
-			// System.exit(0);
-			control_fun();
-		}
+			try {
+				System.out.print("Enter Your Choice: ");
+				Total = scan.nextInt();
+			} catch (Exception e) {
+				System.out.print("Warnning:- Kindly enter an integer from 1-11");
+				Thread.sleep(3000);
+				control_fun();
+			}
 
-		
 			if (Total == 0) {
 				System.exit(0);
 			}
@@ -52,44 +52,48 @@ class control extends Number{
 					n.Number_var(num1, num2, Total);
 				} catch (Exception e) {
 					System.out.print("Warnning:- Enter a valid number");
+					Thread.sleep(3000);
 					control_fun();
 				}
-	
+
 			}
-	
+
 			else if (Total == 7) {
 				int[] arr = new int[10];
-	
+
 				System.out.println("Press 0 for quit");
-	
+
 				for (int i = 0; i < arr.length; i++) {
-	
+
 					System.out.print("Enter the value of arrey: ");
-	
+
 					arr[i] = scan.nextInt();
-	
+
 					if (arr[i] == 0) {
 						break;
 					}
 				}
-	
+
 				n.arrey_method(arr, Total);
 			}
-	
+
 			else {
 				if (Total >= 12) {
 					System.out.format("Press a Valid Opation");
+					Thread.sleep(3000);
+					control_fun();
 				} else {
 					try {
 						System.out.print("Enter a number:");
 						num1 = scan.nextInt();
-	
+
 						System.out.print("Enter a number:");
 						num2 = scan.nextInt();
-	
+
 						n.Number_var(num1, num2, Total);
 					} catch (Exception e) {
 						System.out.print("Warnning:- Kindly enter an integer");
+						Thread.sleep(3000);
 						control_fun();
 					}
 				}
