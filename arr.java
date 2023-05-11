@@ -98,7 +98,7 @@ class control extends Number {
 					}
 				}
 			}
-			// scan.close();
+			Thread.sleep(2000);
 		}
 	}
 }
@@ -209,8 +209,9 @@ class Sum_num {
 		return tot;
 	}
 
-	void Display() {
+	void Display() { 
 		System.out.println("Result is :" + tot);
+		// Thread.sleep(2000);
 	}
 
 	void swap_display() {
